@@ -1,0 +1,16 @@
+.hdg {
+    color: $primary-text-color;
+    font-family: $font-family-heading;
+    font-size: $font-size-h1;
+    margin-bottom: $padding-2;
+}
+
+
+
+.txt {
+    p {
+        color: $primary-text-color;
+        font-size: $font-size-body;
+        font-family: $font-family-body;
+    }
+}

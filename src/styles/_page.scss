@@ -1,0 +1,13 @@
+.page {
+    $page-margin: 20px;
+    $page-margin-2x: $page-margin * 2;
+    margin: $page-margin;
+    width: calc(100% - #{$page-margin-2x});
+    height: calc(100% - #{$page-margin-2x});
+
+    &__image-container {
+        margin: $padding-2 auto;
+        width: 80%;
+        height: auto;
+    }
+}
