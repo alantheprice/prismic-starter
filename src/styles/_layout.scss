@@ -1,14 +1,30 @@
 .main {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 200px auto;
-    grid-template-rows: 100px auto 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr auto 0;
     grid-template-areas:
         "header header"
-        "sidebar main"
+        "sidebar sidebar"
+        "main main"
         "footer footer";
+
+    @include large {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 200px auto;
+        grid-template-rows: 200px auto 0;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
 }
+
+// once I wire up scrolling to slide up header, this will be needed.
+.main.scrolled {
+    grid-template-rows: 0 auto 0;
+}
+
 
 .header {
     grid-area: header;
@@ -17,7 +33,16 @@
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #CCC;
+    max-height: 120px;
+    overflow-y: auto;
+    border-bottom: solid 1px #999;
+
+    @include large {
+        border-right: solid 1px #999;
+        border-bottom: none;
+        max-height: 100%;
+        overflow-y: auto;
+    }
 }
 
 .content {

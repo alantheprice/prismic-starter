@@ -4,24 +4,9 @@ import { client } from '../prismic-configuration'
 import { Link, withRouter } from 'react-router-dom'
 import Prismic from 'prismic-javascript'
 
-
-const LinkItem = (props) => {
-    const { selected, title, href, page } = props
-    return (
-        <li className={`sidebar__list-item${selected === href ? " selected" : ""}`}>
-            <Link to={{
-                pathname: href,
-                state: {
-                    page: page
-                }
-            }}>{title}</Link>
-        </li>
-    )
-}
-
 const Header = (props) => {
     const { location } = props
-    const [links, setLinks] = useState(null)
+    const [header, setHeader] = useState(null)
     // const [selected, setSelected] = useState(window.location.pathname)
 
     // Get the page document from Prismic
@@ -29,34 +14,22 @@ const Header = (props) => {
         const fetchData = async () => {
             // We are using the function to get a document by its UID
             const result = await client.query(
-                Prismic.Predicates.at('document.type', 'page'),
-                { orderings: '[document.first_publication_date]' }
+                Prismic.Predicates.at('document.type', 'header'),
+                { orderings: '[document.first_publication_date desc]' }
             )
-            if (result && result.results && result.results) {
+            if (result && result.results && result.results[0]) {
                 console.log(result.results)
-                return setLinks(result.results.filter(x => x.data.show_in_nav))
+                return setHeader(result.results[0])
             }
         }
         fetchData()
     }, [])
 
-    if (links) {
+    if (header) {
         return (
-            <div className="sidebar">
-                <ul className="sidebar__list">
-                    {
-                        links.map((page) => (
-                            <LinkItem
-                                key={page.uid}
-                                selected={location.pathname}
-                                page={page}
-                                title={RichText.asText(page.data.title)}
-                                href={`/${page.uid}`}
-                            />
-                        )
-                        )
-                    }
-                </ul>
+            <div className="header__container" >
+                <div className="header__image-overlay" style={{ backgroundImage: `url(${header.data.header_image.url})` }} />
+                <h1 className="header__title hdg hdg--1">{RichText.asText(header.data.primary_header)}</h1>
             </div>
         )
     } else {
@@ -65,4 +38,4 @@ const Header = (props) => {
 }
 
 
-export default withRouter(Sidebar)
+export default withRouter(Header)

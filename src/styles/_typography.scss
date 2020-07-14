@@ -1,8 +1,41 @@
 .hdg {
     color: $primary-text-color;
     font-family: $font-family-heading;
-    font-size: $font-size-h1;
     margin-bottom: $padding-2;
+}
+
+.hdg--1 {
+    font-size: $font-size-h1;
+
+    @include small {
+        font-size: $font-size-mobile-h1;
+    }
+}
+
+
+.hdg--2 {
+    font-size: $font-size-h2;
+
+    @include small {
+        font-size: $font-size-mobile-h2;
+    }
+}
+
+
+.hdg--3 {
+    font-size: $font-size-h3;
+
+    @include small {
+        font-size: $font-size-mobile-h3;
+    }
+}
+
+.hdg--4 {
+    font-size: $font-size-h4;
+
+    @include small {
+        font-size: $font-size-mobile-h4;
+    }
 }
 
 

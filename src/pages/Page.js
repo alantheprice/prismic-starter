@@ -36,7 +36,7 @@ const Page = (props) => {
     if (doc) {
         return (
             <div className="page">
-                <h1 className="hdg">{RichText.asText(doc.data.title)}</h1>
+                <h2 className="hdg hdg--2">{RichText.asText(doc.data.title)}</h2>
                 <div className="txt">
                     <RichText render={doc.data.description} linkResolver={linkResolver} />
                 </div>

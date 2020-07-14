@@ -22,18 +22,16 @@ const LinkItem = (props) => {
 const Sidebar = (props) => {
     const { location } = props
     const [links, setLinks] = useState(null)
-    // const [selected, setSelected] = useState(window.location.pathname)
 
-    // Get the page document from Prismic
+    // Get the pages from Prismic
     useEffect(() => {
         const fetchData = async () => {
-            // We are using the function to get a document by its UID
+            // We are using the predicate to get all pages
             const result = await client.query(
                 Prismic.Predicates.at('document.type', 'page'),
                 { orderings: '[document.first_publication_date]' }
             )
-            if (result && result.results && result.results) {
-                console.log(result.results)
+            if (result && result.results && result.results.length) {
                 return setLinks(result.results.filter(x => x.data.show_in_nav))
             }
         }
@@ -42,22 +40,20 @@ const Sidebar = (props) => {
 
     if (links) {
         return (
-            <div className="sidebar">
-                <ul className="sidebar__list">
-                    {
-                        links.map((page) => (
-                            <LinkItem
-                                key={page.uid}
-                                selected={location.pathname}
-                                page={page}
-                                title={RichText.asText(page.data.title)}
-                                href={`/${page.uid}`}
-                            />
-                        )
-                        )
-                    }
-                </ul>
-            </div>
+            <ul className="sidebar__list">
+                {
+                    links.map((page) => (
+                        <LinkItem
+                            key={page.uid}
+                            selected={location.pathname}
+                            page={page}
+                            title={RichText.asText(page.data.title)}
+                            href={`/${page.uid}`}
+                        />
+                    )
+                    )
+                }
+            </ul>
         )
     } else {
         return null

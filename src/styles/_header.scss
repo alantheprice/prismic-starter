@@ -1,0 +1,32 @@
+.header {
+    &__container {
+        position: relative;
+        padding: $padding-4;
+        height: 100%;
+        background-color: #222;
+    }
+
+    &__image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.35;
+        z-index: 0;
+
+        @include small {
+            opacity: 0;
+        }
+    }
+
+    &__title.hdg {
+        position: absolute;
+        padding: $padding-2;
+        z-index: 1;
+        font-weight: bold;
+        color: #EEE;
+        opacity: 1;
+    }
+
+}

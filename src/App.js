@@ -9,6 +9,7 @@ import {
 import { repoName } from './prismic-configuration'
 import { Help, Preview, NotFound, Page } from './pages'
 import Sidebar from './components/Sidebar'
+import Header from './components/Header'
 
 /**
  * Main application component
@@ -22,8 +23,8 @@ const App = (props) => (
     <BrowserRouter>
 
       <div className="header">
-        Header Here
-        </div>
+        <Header {...props} />
+      </div>
       <div className="sidebar">
         <Sidebar {...props} />
       </div>

@@ -9,11 +9,17 @@ Times,
 serif;
 
 // Font Sizes
-$font-size-h1: 2rem;
+$font-size-h1: 2.5rem;
 $font-size-h2: 1.8rem;
 $font-size-h3: 1.6rem;
 $font-size-h4: 1.2rem;
 $font-size-body: 1rem;
+
+// Mobile Font Sizes
+$font-size-mobile-h1: 1.6rem;
+$font-size-mobile-h2: 1.4rem;
+$font-size-mobile-h3: 1.3rem;
+$font-size-mobile-h4: 1.1rem;
 
 $padding-1: 6px;
 $padding-2: $padding-1 * 2;
@@ -25,3 +31,7 @@ $padding-6: $padding-1 * 6;
 // Colors
 $primary-text-color: #224;
 $link-text-color: #249;
+
+$small-max-screen: 320px;
+$tablet-min-size: 450px;
+$desktop-min-size: 1024px;
