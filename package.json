@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "autoprefixer": "9.8.5",
     "node-sass": "4.14.1",
     "prismic-javascript": "2.1.1",
     "prismic-reactjs": "1.1.2",
@@ -23,7 +24,7 @@
     "eject": "react-scripts eject"
   },
   "engines": {
-    "node": ">=4.8.1",
+    "node": ">=14.0.0",
     "npm": ">=2.15.11"
   },
   "browserslist": [
@@ -33,4 +34,3 @@
     "not op_mini all"
   ]
 }
-

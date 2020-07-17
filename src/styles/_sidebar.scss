@@ -1,5 +1,7 @@
 .sidebar {
 
+    &__mobile-title {}
+
     &__list {
         padding: $padding-3;
     }
@@ -29,7 +31,6 @@
             @include medium {
                 padding-left: $padding-1;
             }
-
         }
 
         &.selected {
