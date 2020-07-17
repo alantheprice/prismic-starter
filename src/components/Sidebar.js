@@ -32,8 +32,7 @@ const Sidebar = (props) => {
                 { orderings: '[document.first_publication_date]' }
             )
             if (result && result.results && result.results.length) {
-                // TODO: Filter for showing in Nav: `result.results.filter(x => x.data.show_in_nav)`
-                return setLinks(results.results)
+                return setLinks(result.results.filter(x => x.data.show_in_nav))
             }
         }
         fetchData()
